@@ -1,0 +1,39 @@
+Manual for 7Bot GUI by Pinaut
+
+Before start application:
+- install processing to your computer
+- install ControlP5 library (used for the sliders and IK fields)
+
+Setup in the code:
+PORT_ID =  5;// Your should change PORT_ID accoading to your own situation.
+wait = 90; // 90 seconds pause before start play again (pressing 'P' start move manualy while pause) 
+speedMax = 250; // 50-250 maximum servo speed (good above 180!)
+boolean DEBUG = false; // extended data window
+
+After start the application the arm goes to his home position and the program is in record mode and ready for teach in.
+- Uper area is for IK teach (inverse kinematic)
+- Middle area displays the boolean switches and servos positions
+- Lower are includes couple buttons
+
+Teach by hand:
+1) Select the'TEACH' button: The arm change to unpowered and you can move by hand.
+2) Press 'ADD' or hit 'SPACE' on the keyboard: A step is recorded.
+
+Teach with IK functions:
+1) Select the 'IK' button: The arm goes to default IK Position (X=0, Y=200, Z=150)
+The IK field are the X and Y axis. The slider near a field is the Z axis
+2) Move the arm with the mouse while klick in the IK field or drag the point (crosshair)
+3) Use the Vector56 fields to rotate the Hand relative to the arm position. The hand will keep his orientation while move the arm.
+3a) Press 'FOCUS' to to rotate the Hand pointing to a fixed coordinates. The hand change his orientation pointing to a spot defined in the Vector56 field while move the arm
+4) Use Vecor67 fields to rotate the gripper or sucker 
+5) Press 'ADD' or hit 'SPACE' on the keyboard: A step is recorded.
+
+- You can change between manual teach in and IK teach in while programming the arm
+- while in IK teach mode key 'K' enables move the arm with the arrow keys along the X,Yaxis. ',' and '.' for the Zaxis
+- Delete the last added step with 'CLR'
+(future updates will be able edit the poses step by step)
+
+Save, load and rename a sequence:
+The sequences are saved as a excel file (sequenceName.csv) and located in the folder 'Data' in the sketch folder
+To save a sequence klick the 'SAVE' button. Enter a Name without! file extension
+To load a sequence klick the 'LOAD' button and choose a sequence
