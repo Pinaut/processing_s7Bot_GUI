@@ -1,0 +1,64 @@
+Manual for 7Bot GUI by Pinaut
+
+Before start application
+
+- install processing to your computer (tested with processing 3.0a4, on mac osx 10.7.5)
+- install ControlP5 library (used for the sliders and IK fields)
+
+
+Before run the sketch
+
+Setup following variables in the code
+PORT_ID =  5;// Your should change PORT_ID accoading to your own situation.
+wait = 60; // 60 seconds pause before start play again (pressing 'P' start move manualy while pause) 
+speedMax = 250; // 50-250 maximum servo speed; can be changed while running (good above 180!)
+boolean DEBUG = false; // extended data window
+
+After start the application the arm goes to his home position and the program is in record mode and ready for teach in.
+- Uper area is for IK teach (inverse kinematic)
+- Middle area displays the boolean switches and servos positions
+- Lower are includes couple buttons
+- Debug area i used to see variables
+
+
+keyboard commands
+
+// 'SPACE' record/add a step
+// 'C' clear last step
+// 'P' play the stored positions (restart while pause)
+// 'K' enables keyboard move while IK mode
+// 'S' change speed (50 to 250)
+//  Arrow Keys = XY, ',' and '.' for Z axis while keyboard mode (IK tech in)
+// 'M' math: calculated positions running (beta)
+
+Teach by hand:
+
+1) Select the'TEACH' button: The arm change to unpowered and you can move by hand.
+2) Press 'ADD' or hit 'SPACE' on the keyboard to record a step 
+
+Teach with IK functions:
+
+1) Select the 'IK' button: The arm goes to default IK Position (X=0, Y=200, Z=150)
+The ARM[XY] field are the X and Y axis. The slider right from this field is for the Z axis.
+2) Move the arm with the mouse while klick in the IK field or drag the point (crosshair)
+3) Use the HAND[XY] and [Z] fields to rotate the Hand relative to the arm position. The hand will keep his global orientation while move the arm.
+3a) Press 'FOCUS' to to rotate the Hand pointing to fixed coordinates in space around the robot. The hand change his orientation pointing to a spot defined in the HAND[XY] and [Z] field
+4) Use ROTATE slider to rotate the gripper or sucker 
+5) Press 'ADD' or hit 'SPACE' on the keyboard: A step is recorded.
+
+
+Infos
+
+- You can change between manual teach in and IK teach while programming the arm
+- While in IK teach mode key 'K' enables move the arm with the arrow keys along the X,Yaxis. ',' and '.' for the Zaxis
+- Cycle trough steps with '1' and '2' or using the buttons
+- Delete a step with 'CLR'
+- Add a step after current step with 'ADD' or 'SPACE' on the keyboard 
+
+
+Save, load and rename a sequence
+
+The sequences are saved as a excel file (sequenceName.csv) and located in the folder 'Data' in the sketch folder
+To save a sequence klick the 'SAVE' button. Enter a Name without! file extension
+To load a sequence klick the 'LOAD' button and choose a sequence
+
